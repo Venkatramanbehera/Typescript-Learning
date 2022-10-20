@@ -1,5 +1,5 @@
 class UserHandy {
-    private _courseCount = 1;
+    protected _courseCount = 1;
     readonly city: string = "Jaipur"
     constructor(
         public email: string,
@@ -31,5 +31,14 @@ class UserHandy {
         this._courseCount = courseNum;
     }
 }
+
+class SubUserHandy extends UserHandy { 
+    // parent class private members are not accessable to SubUserHandy class
+    // protected/public member we can access
+    isFamily: boolean = true;
+    changeCourseCount() {
+        this._courseCount = 4;
+    }
+};
 
 export {}
